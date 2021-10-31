@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Quizz</string>
+    <string name="title">Country Quizz</string>
+    <string name="question_title">Question</string>
+    <string name="todo">TODO</string>
+
+    <string name="true_text">True</string>
+    <string name="false_text">False</string>
+    <string name="next_text">Next</string>
+
+    <string name="question_1">What country in </string>
+</resources>
