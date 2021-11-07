@@ -22,16 +22,16 @@ public class MainActivity extends AppCompatActivity {
 
     // Create questions for quiz
     private  Quiz[] quizBank = new  Quiz[] {
-            new Quiz(R.string.my,R.drawable.perodua_logo,true),
-            new Quiz(R.string.germany,R.drawable.ford_logo,false),
-            new Quiz(R.string.china,R.drawable.geely_logo,true),
-            new Quiz(R.string.sweden,R.drawable.kia_logo,false),
-            new Quiz(R.string.france,R.drawable.daimler_logo,false),
-            new Quiz(R.string.sk,R.drawable.peugeot_logo,false),
-            new Quiz(R.string.france,R.drawable.renault_logo,true),
-            new Quiz(R.string.usa,R.drawable.toyota_logo,false),
-            new Quiz(R.string.japan,R.drawable.volkswagen_logo,false),
-            new Quiz(R.string.sweden,R.drawable.volvo_logo,true)
+            new Quiz(R.string.my,R.drawable.perodua,true),
+            new Quiz(R.string.germany,R.drawable.ford,false),
+            new Quiz(R.string.china,R.drawable.geely,true),
+            new Quiz(R.string.sweden,R.drawable.kia,false),
+            new Quiz(R.string.france,R.drawable.daimler,false),
+            new Quiz(R.string.sk,R.drawable.peugeot,false),
+            new Quiz(R.string.france,R.drawable.renault,true),
+            new Quiz(R.string.usa,R.drawable.toyota1,false),
+            new Quiz(R.string.japan,R.drawable.volkswagen_1,false),
+            new Quiz(R.string.sweden,R.drawable.volvo,true)
     };
 
     // Initialise binder to UI elements and set its action
