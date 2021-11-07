@@ -1,47 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFF4E8"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
-        android:id="@+id/horizontal_line"
+
+<RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true" />
-
-    <RelativeLayout
-        android:id="@+id/vertical_line"
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_centerHorizontal="true" />
+        android:background="#FFF4E8"
+        tools:context=".MainActivity"
+        android:id="@+id/activity_main">
 
-    <RelativeLayout
-        android:layout_width="350dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="25dp"
-        android:layout_marginStart="30dp">
-
-        <TextView
-            android:id="@+id/main_title"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/horizontal_line"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/title"
-            android:textColor="@color/black"
-            android:textSize="45sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_centerVertical="true" />
 
-    </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/vertical_line"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:layout_width="350dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginStart="30dp">
+
+            <TextView
+                android:id="@+id/main_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/title"
+                android:textColor="@color/black"
+                android:textSize="45sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/question_layout"
@@ -55,13 +59,15 @@
         android:background="@drawable/shape1">
 
         <ImageView
-            android:id="@+id/france_flag"
+            android:id="@+id/question_image"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/todo"
-            android:src="@drawable/france_flag" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/france_flag"
+            app:srcCompat="@drawable/ford_logo" />
 
         <TextView
             android:id="@+id/question_title"
@@ -70,17 +76,18 @@
             android:layout_marginTop="180dp"
             android:text="@string/question_title"
             android:textAlignment="center"
-            android:textColor="#3E2723"
+            android:textColor="#FFE4C6"
             android:textSize="25sp" />
 
         <TextView
+            android:id="@+id/country_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="220dp"
-            android:text="@string/question_1"
+            android:text="@string/baseQuestions"
             android:textAlignment="center"
             android:textColor="#FFE4C6"
-            android:textSize="20sp" />
+            android:textSize="30sp" />
     </RelativeLayout>
 
     <android.widget.Button
@@ -88,30 +95,30 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="34dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="220dp"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/button_shape"
         android:text="@string/true_text"
         android:textColor="#FF9B7A50"
         android:textSize="15sp"
         android:textStyle="bold" />
 
-    <android.widget.Button
-        android:id="@+id/false_button"
-        android:layout_width="320dp"
-        android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="34dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="150dp"
-        android:background="@drawable/button_shape"
-        android:text="@string/false_text"
-        android:textColor="#FF9B7A50"
-        android:textSize="15sp"
-        android:textStyle="bold" />
+        <android.widget.Button
+            android:id="@+id/false_button"
+            android:layout_width="320dp"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="150dp"
+            android:background="@drawable/button_shape"
+            android:text="@string/false_text"
+            android:textColor="#FF9B7A50"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
     <android.widget.Button
         android:id="@+id/next_button"
@@ -135,6 +142,25 @@
         android:layout_marginLeft="6dp"
         android:layout_marginTop="20dp"
         android:background="#FFF4E8"
-        android:src="@drawable/back_button" />
+        android:src="@drawable/ic_back_button" />
 
-</RelativeLayout>
+    <!-- Here are the existing layout elements, now wrapped in
+       a CoordinatorLayout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- …Toolbar, other layouts, other elements… -->
+
+    </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</layout>
