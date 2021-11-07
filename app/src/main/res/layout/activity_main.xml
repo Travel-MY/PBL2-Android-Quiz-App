@@ -9,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#FFF4E8"
-        tools:context=".MainActivity">
+        tools:context=".MainActivity"
+        android:id="@+id/activity_main">
 
         <RelativeLayout
             android:id="@+id/horizontal_line"
@@ -58,13 +59,15 @@
         android:background="@drawable/shape1">
 
         <ImageView
-            android:id="@+id/france_flag"
+            android:id="@+id/question_image"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:contentDescription="@string/todo"
-            android:src="@drawable/france_flag" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/france_flag"
+            app:srcCompat="@drawable/ford_logo" />
 
         <TextView
             android:id="@+id/question_title"
@@ -73,17 +76,18 @@
             android:layout_marginTop="180dp"
             android:text="@string/question_title"
             android:textAlignment="center"
-            android:textColor="#3E2723"
+            android:textColor="#FFE4C6"
             android:textSize="25sp" />
 
         <TextView
+            android:id="@+id/country_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="220dp"
-            android:text="@string/question_1"
+            android:text="@string/baseQuestions"
             android:textAlignment="center"
             android:textColor="#FFE4C6"
-            android:textSize="20sp" />
+            android:textSize="30sp" />
     </RelativeLayout>
 
     <android.widget.Button
@@ -116,29 +120,47 @@
             android:textSize="15sp"
             android:textStyle="bold" />
 
-        <android.widget.Button
-            android:id="@+id/next_button"
-            android:layout_width="320dp"
-            android:layout_height="48dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="34dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="80dp"
-            android:background="@drawable/button2_shape"
-            android:text="@string/next_text"
-            android:textColor="#FFFFE4C6"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+    <android.widget.Button
+        android:id="@+id/next_button"
+        android:layout_width="320dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="34dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/button2_shape"
+        android:text="@string/next_text"
+        android:textColor="#FFFFE4C6"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/back_button"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="6dp"
-            android:layout_marginTop="20dp"
-            android:background="#FFF4E8"
-            android:src="@drawable/back_button" />
+    <ImageButton
+        android:id="@+id/back_button"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="20dp"
+        android:background="#FFF4E8"
+        android:src="@drawable/ic_back_button" />
+
+    <!-- Here are the existing layout elements, now wrapped in
+       a CoordinatorLayout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- …Toolbar, other layouts, other elements… -->
+
+    </LinearLayout>
+
+
 
     </RelativeLayout>
+
+
+
+
+
 </layout>
