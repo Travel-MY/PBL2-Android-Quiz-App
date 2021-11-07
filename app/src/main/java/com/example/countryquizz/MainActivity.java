@@ -41,20 +41,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         // Set visibility of button when view loads up
-        binding.nextButton.setVisibility(View.INVISIBLE);
-        binding.backButton.setVisibility(View.INVISIBLE);
+        configureButton(Boolean.TRUE,View.INVISIBLE, View.INVISIBLE);
         binding.questionImage.setImageResource(quizBank[currentQuestionIndex].getImageName());
         Log.d("MAIN", "setImageResource :"+ quizBank[currentQuestionIndex].getImageName());
         binding.countryName.setText(quizBank[currentQuestionIndex].getQuestions());
         binding.nextButton.setOnClickListener(v-> {
             currentQuestionIndex = (currentQuestionIndex + 1);
-            binding.nextButton.setVisibility(View.VISIBLE);
             refreshQuestions();
-
         });
         binding.backButton.setOnClickListener(v-> {
             if (currentQuestionIndex > 0){
-                currentQuestionIndex = (currentQuestionIndex - 1) % quizBank.length;//decrement
+                configureButton(Boolean.FALSE,View.VISIBLE,View.VISIBLE);
+                currentQuestionIndex = (currentQuestionIndex - 1) % quizBank.length;
                 refreshQuestions();
 
                 Log.d("MAIN", "Question index prev :"+currentQuestionIndex);
@@ -71,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     // Validate the answers & set the bg color for snackbar
     @SuppressLint("ResourceAsColor")
     private  void validateAnswers(boolean userAnswers){
-        binding.nextButton.setVisibility(View.VISIBLE);
+        configureButton(Boolean.FALSE,View.VISIBLE, View.VISIBLE);
         boolean answerIsCorrect = quizBank[currentQuestionIndex].isAnswerTrue();
         int snackBarMessage;
         int snackBarColor;
@@ -82,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             snackBarMessage = R.string.answer_incorrect;
             snackBarColor = R.color.red;
-
         }
 
         mainActivity = binding.activityMain;
@@ -93,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Refresh questions when user select next button
-    void refreshQuestions() {
+    private void refreshQuestions() {
+        configureButton(Boolean.TRUE,View.VISIBLE,View.VISIBLE);
         binding.nextButton.setVisibility(View.INVISIBLE);
         binding.backButton.setVisibility(View.VISIBLE);
         if (currentQuestionIndex == quizBank.length) {
@@ -105,6 +103,12 @@ public class MainActivity extends AppCompatActivity {
         binding.countryName.setText(quizBank[currentQuestionIndex].getQuestions());
         // Set quiz image
         binding.questionImage.setImageResource(quizBank[currentQuestionIndex].getImageName());
+    }
 
+    private void configureButton(Boolean answerBtn,int backBtn,int nextBtn) {
+        binding.trueButton.setEnabled(answerBtn);
+        binding.falseButton.setEnabled(answerBtn);
+        binding.backButton.setVisibility(backBtn);
+        binding.nextButton.setVisibility(nextBtn);
     }
 }
